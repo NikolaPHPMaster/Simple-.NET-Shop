@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Pregled laptop";
+}
+
+@model NasaProdavnica.Models.MainModel
+@using NasaProdavnica.Helper
+
+<h2>@Model.Laptopovi.Naziv</h2>
+<img src="@Model.Laptopovi.Fotografija" alt="@Model.Laptopovi.Naziv"/>
+<h2>Cena:</h2>
+@Helperi.popustHelper(Model.Laptopovi.Cena, Model.Laptopovi.Popust)
+@if (Model.Laptopovi.Popust > 0)
+{
+<h3>Popust @Model.Laptopovi.Popust %</h3>
+}
+<h3>Proizvodjac @Model.Laptopovi.Proizvodjac</h3>
+@if(Model.Laptopovi.Rate != "Bez rata")
+{
+    <h3>Mogucnost placanja na rate @Model.Laptopovi.Rate</h3>
+}
+@if(Model.Laptopovi.Akcija == true)
+{
+    <h3>Proizvod je na akciji </h3>
+}
+else { 
+<h3>
+    Proizvod trenutnoi nije na akciji
+</h3>
+}
+<h3>@Model.Laptopovi.DijagonalaEkrana dijagonala ekrana</h3>
+<details>
+    <summary>Opis proizvoda</summary>
+    <p>@Model.Laptopovi.Opis</p>
+</details>
+

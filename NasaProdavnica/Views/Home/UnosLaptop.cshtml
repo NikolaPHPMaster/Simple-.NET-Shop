@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@model NasaProdavnica.Models.MainModel
+<h2>Unos laptopa</h2>
+<div class="panel-title">
+    <h2>Unos novog laptopa</h2>
+</div>
+@using (Html.BeginForm("UnosLaptop","Home",FormMethod.Post))
+{
+<div>
+    <label>Naziv Proizvoda</label>
+    @Html.TextBoxFor(x => x.Laptopovi.Naziv)
+    <label>Fotografija</label>
+    @Html.TextBoxFor(x => x.Laptopovi.Fotografija)
+    <hr />
+    <label>Cena</label>
+    @Html.TextBoxFor(x => x.Laptopovi.Cena)
+    <label>Popust</label>
+    @Html.TextBoxFor(x => x.Laptopovi.Popust)
+    <label>Proizvodjac</label>
+    @Html.DropDownListFor(x => x.Laptopovi.Proizvodjac, new SelectList(ViewBag.naziv, ViewBag.naziv))
+</div>
+<div>
+    <label>Placanje ratama</label>
+    <label>@Html.RadioButtonFor(x => x.Laptopovi.Rate, "48 rata")48 rata</label>
+    <label>@Html.RadioButtonFor(x => x.Laptopovi.Rate, "24 rate")24 rate</label>
+    <label>@Html.RadioButtonFor(x => x.Laptopovi.Rate, "12 rata")12 rata</label>
+    <label>@Html.RadioButtonFor(x => x.Laptopovi.Rate, "Bez rata") Bez rata</label>
+    <hr />
+    <label>Proizvod na akciji</label>
+    <label>@Html.CheckBoxFor(x => x.Laptopovi.Akcija)da</label>
+    <hr />
+    <label>Dijaonala ekrana</label>
+    @Html.TextBoxFor(x=>x.Laptopovi.DijagonalaEkrana)
+    <label>Opis</label>
+    <label>@Html.TextAreaFor(x=>x.Laptopovi.Opis)</label>
+    <input type="submit" class="btn-primary dugme" value="Potvrdi" />
+</div>
+}

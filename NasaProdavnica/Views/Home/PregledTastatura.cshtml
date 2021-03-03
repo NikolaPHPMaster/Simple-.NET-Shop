@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Pregled tastatura";
+}
+@model NasaProdavnica.Models.MainModel
+
+<h2>@Model.Tastature.Naziv</h2>
+<img src="@Model.Tastature.Fotografija" alt="@Model.Tastature.Naziv" />
+<h2>Cena @Model.Tastature.Cena</h2>
+<h3>Popust @Model.Tastature.Popust %</h3>
+<h3>Proizvodjac @Model.Tastature.Proizvodjac</h3>
+@if (Model.Tastature.Rate != "Bez rata")
+{
+    <h3>Mogucnost placanja na rate @Model.Tastature.Rate</h3>
+}
+@if (Model.Tastature.Akcija == true)
+{
+    <h3>Proizvod je na akciji </h3>
+}
+else
+{
+    <h3>
+        Proizvod trenutnoi nije na akciji
+    </h3>
+}
+<h3>@Model.Tastature.TipTastature tip tastera</h3>
+<details>
+    <summary>Opis proizvoda</summary>
+    <p>@Model.Tastature.Opis</p>
+</details>
